@@ -1,15 +1,15 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native"
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { ImageProfile } from "../components/imageProfile.component"
 import { Stars } from "../components/star.components"
 
-export const SkillsScreen = () => {
+export const SkillsScreen = ({ navigation }: any) => {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.containerImage}>
                 <ImageProfile />
                 <Text style={styles.text}>Alcenir Barbosa dos Santos</Text>
                 <Text style={styles.text}>Pricipais habilidades</Text>
-                <View>
+                <View style={styles.containerStars}>
                     <Stars name="ReactJS" value={5} />
                     <Stars name="React Native" value={3.5} />
                     <Stars name="C#" value={4.5} />
@@ -19,6 +19,7 @@ export const SkillsScreen = () => {
                     <Stars name="PostgreSQL" value={4.7} />
                     <Stars name="NestJs" value={5} />
                 </View>
+                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}><Text style={styles.textButton}>Voltar</Text></TouchableOpacity>
             </View>
         </ScrollView>
     )
@@ -41,11 +42,11 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         marginBottom: 30
     },
-    containerButton: {
+    containerStars: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 60,
+        marginBottom: 60,
         width: '100%',
     },
     button: {
